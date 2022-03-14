@@ -12,7 +12,9 @@
 
 ## 数据集
 
-本次评测任务的数据来源于春雨医生的互联网在线问诊公开数据。中文医疗信息处理挑战榜CBLUE公开了数据集下载（地址：https://tianchi.aliyun.com/dataset/dataDetail?dataId=95414）CHIP2021评测任务一的数据集可在CBLUE发布的CHIP-MDCFNPC任务中申请下载。CBLUE公开的8,000条数据包括5,000条训练数据、1,000条验证数据和2,000条测试数据。请将下载后的数据保存在`data/dataset`路径下。
+本次评测任务的数据来源于春雨医生的互联网在线问诊公开数据。中文医疗信息处理挑战榜CBLUE公开了数据集下载，地址：https://tianchi.aliyun.com/dataset/dataDetail?dataId=95414
+
+CHIP2021评测任务一的数据集可在CBLUE发布的CHIP-MDCFNPC任务中申请下载。CBLUE公开的8,000条数据包括5,000条训练数据、1,000条验证数据和2,000条测试数据。请将下载后的数据保存在`data/dataset`路径下。
 
 原评测任务在CHIP2021中一共提供了9,999条数据，包括6,000条训练数据、2,000条A榜测试数据和1,999条B榜测试数据。本方案对该9,999条数据集进行五折划分，结果可在`data/dataset/split.csv`中查看，其中前6,000条为训练数据，6,000~8,000条为基于A榜测试数据（伪标签）的划分，最后1,999条为基于B榜测试数据（伪标签）的划分。比赛中原6,000条训练数据的后1,000条在MDCFNPC数据集中被公开为验证数据，前5,000条保留为训练数据，A榜测试数据已公开，B榜测试数据未公开。
 
@@ -81,8 +83,8 @@ python predict.py --test_input_file ./data/dataset/CHIP-MDCFNPC_test.jsonl.txt -
       author={Yiwen Jiang},
       title={A Shared Embedding Strategy Based Model for Clinical Findings Classification in Medical Dialogues},
       year={2022},
-	  publisher={GitHub},
-      howpublished={\url{https://github.com/winninghealth/chip/MDCFNPC}},
+	  howpublished={GitHub},
+      url={https://github.com/winninghealth/chip/MDCFNPC},
 }
 ```
 
