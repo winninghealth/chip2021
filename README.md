@@ -1,6 +1,6 @@
-# CHIP2021 Task1 医学对话阴阳性判别
+## CHIP2021 Task1 医学对话阴阳性判别
 
-## 任务背景
+### 任务背景
 
 比赛名称：医学对话临床发现阴阳性判别任务（CHIP2021评测一）
 
@@ -10,7 +10,7 @@
 
 任务简介：针对互联网在线问诊记录中的临床发现的部分进行阴阳性的分类判别。 评测任务给定医患在线对话的完整记录，以及医患交互中提及的临床发现，要求对临床发现的阴阳性类别做判断。
 
-## 数据集
+### 数据集
 
 本次评测任务的数据来源于春雨医生的互联网在线问诊公开数据。中文医疗信息处理挑战榜CBLUE公开了数据集下载，地址：https://tianchi.aliyun.com/dataset/dataDetail?dataId=95414
 
@@ -18,14 +18,13 @@ CHIP2021评测任务一的数据集可在CBLUE发布的CHIP-MDCFNPC任务中申�
 
 原评测任务在CHIP2021中一共提供了9,999条数据，包括6,000条训练数据、2,000条A榜测试数据和1,999条B榜测试数据。本方案对该9,999条数据集进行五折划分，结果可在`data/dataset/split.csv`中查看，其中前6,000条为训练数据，6,000~8,000条为基于A榜测试数据（伪标签）的划分，最后1,999条为基于B榜测试数据（伪标签）的划分。比赛中原6,000条训练数据的后1,000条在MDCFNPC数据集中被公开为验证数据，前5,000条保留为训练数据，A榜测试数据已公开，B榜测试数据未公开。
 
-## 环境依赖
+### 环境依赖
 
 - 主要基于 Python (3.7.3+) & AllenNLP 实现
 
 - 实验使用 GPU 包括：Tesla V100 / TITAN RTX / GeForce GTX 1080Ti
 
 - Python 版本依赖：
-
 
 ```
 torch==1.8.1
@@ -34,7 +33,7 @@ allennlp==2.4.0
 pandas==0.24.2
 ```
 
-## Quick Start
+### 快速开始
 
 #### 预训练模型
 
@@ -51,7 +50,7 @@ pandas==0.24.2
 
 #### 数据预处理
 
-```shell
+```python
 python data_preprocess.py --input_file ./data/dataset/CHIP-MDCFNPC_train.jsonl --output_path ./data/dialog_data
 ```
 
@@ -61,7 +60,7 @@ python data_preprocess.py --input_file ./data/dataset/CHIP-MDCFNPC_train.jsonl -
 
 #### 模型训练
 
-```shell
+```python
 python trainer.py --train_file ./data/dialog_data/train/train0.pkl --dev_file ./data/dialog_data/valid/valid0.pkl --pretrained_model_dir ./PLMs/Roberta_base --output_model_dir ./save_model/Roberta_base/save_model_0 --cuda_id cuda:0 --batch_size 10 --num_train_epochs 5 --patience 2 --gradient_accumulation_steps 2
 ```
 
@@ -70,16 +69,16 @@ python trainer.py --train_file ./data/dialog_data/train/train0.pkl --dev_file ./
 
 #### 模型预测
 
-```shell
+```python
 python predict.py --test_input_file ./data/dataset/CHIP-MDCFNPC_test.jsonl.txt --test_output_file ./prediction_results/Roberta_base/submission_0.txt --test_probs_file ./prediction_results/Roberta_base/probs_0.json --model_dir ./save_model/Roberta_base/save_model_0 --pretrained_model_dir ./PLMs/Roberta_base --cuda_id cuda:0 --batch_size 48
 ```
 
 - 参数：{test_input_file}: 测试数据集路径，{test_output_file}: 预测结果输出路径，{test_probs_file}: 预测标签概率输出路径，{model_dir}: 加载的已训练模型路径，{pretrained_model_dir}: 预训练语言模型路径
 
-## 如何引用
+### 如何引用
 
 ```
-@Misc{WinningHealth2022,
+@Misc{Jiang2022Shared,
       author={Yiwen Jiang},
       title={A Shared Embedding Strategy Based Model for Clinical Findings Classification in Medical Dialogues},
       year={2022},
@@ -88,7 +87,7 @@ python predict.py --test_input_file ./data/dataset/CHIP-MDCFNPC_test.jsonl.txt -
 }
 ```
 
-## 版权
+### 版权
 
 MIT License - 详见 [LICENSE](LICENSE)
 
