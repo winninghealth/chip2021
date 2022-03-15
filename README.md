@@ -82,8 +82,8 @@ python predict.py --test_input_file ./data/dataset/CHIP-MDCFNPC_test.jsonl.txt -
       author={Yiwen Jiang},
       title={A Shared Embedding Strategy Based Model for Clinical Findings Classification in Medical Dialogues},
       year={2022},
-	  howpublished={GitHub},
-      url={https://github.com/winninghealth/chip/MDCFNPC},
+      howpublished={GitHub},
+      url={https://github.com/winninghealth/chip2021/MDCFNPC},
 }
 ```
 
